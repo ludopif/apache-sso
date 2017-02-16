@@ -32,9 +32,10 @@ RUN find /opt/apache -type d -exec chmod g+x {} +
 #RUN echo "ServerName localhost" >>/opt/apache/2.4.25/conf/httpd.conf
 
 # forward request and error logs to docker log collector
-#RUN ln -sf /dev/stdout /opt/apache/2.4.25/logs/access.log && ln -sf /dev/stderr /opt/apache/2.4.25/logs/error.log
+RUN ln -sf /dev/stdout /opt/apache/2.4.25/logs/access.log && ln -sf /dev/stderr /opt/apache/2.4.25/logs/error.log
 
 #USER ussouser
+USER 1001
 
 #COPY  startup.sh /
 #RUN   /opt/apache/2.4.25/bin/httpd -D FOREGROUND &
