@@ -59,5 +59,5 @@ RUN find /opt/apache/2.4.25/logs -type d -exec chmod g+x {} +
 #RUN   /opt/apache/2.4.25/bin/httpd -D FOREGROUND &
 
 #ENTRYPOINT ["/opt/apache/2.4.25/bin/httpd -D FOREGROUND"]
-#CMD ["/opt/apache/2.4.25/bin/httpd","-D FOREGROUND"]
+CMD ["/opt/apache/2.4.25/bin/httpd","-D FOREGROUND"]
 #CMD ["/bin/sh"]
