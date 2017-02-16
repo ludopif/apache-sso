@@ -19,8 +19,6 @@ USER root
 #ENV LANG en_US.UTF-8
 #ENV LC_ALL en_US.UTF-8
 
-EXPOSE 8080
-
 #permet de recuperer les Volumes dans un Autre docker (-volume-from xxx)
 #VOLUME /exec/applis/usso/com/current/logs/
 
@@ -46,6 +44,8 @@ RUN chgrp -R 0 /opt/apache/2.4.25/logs
 RUN chmod -R g+rw /opt/apache/2.4.25/logs
 RUN find /opt/apache/2.4.25/logs -type d -exec chmod g+x {} +
 
+EXPOSE 8080
+
 #RUN echo "ServerName localhost" >>/opt/apache/2.4.25/conf/httpd.conf
 #RUN echo "Listen 8080" >> /opt/apache/2.4.25/conf/httpd.conf
 
@@ -53,7 +53,7 @@ RUN find /opt/apache/2.4.25/logs -type d -exec chmod g+x {} +
 #RUN ln -sf /dev/stdout /opt/apache/2.4.25/logs/access.log && ln -sf /dev/stderr /opt/apache/2.4.25/logs/error.log
 
 #USER ussouser
-#USER 1001
+USER 1001
 
 #COPY  startup.sh /
 #RUN   /opt/apache/2.4.25/bin/httpd -D FOREGROUND &
