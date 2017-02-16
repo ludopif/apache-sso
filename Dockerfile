@@ -7,7 +7,7 @@ FROM apache:2.4.25
 MAINTAINER Laurent Bodhuin <laurent.bodhuin@orange.com>
 
 ######################################################################
-#USER root
+USER root
 
 #RUN echo "on commence"; cp /opt/apache/2.4.25/httpdwt_initd /etc/init.d/httpdwt_com && \
 #    sed -i s/httpdwt_mco/httpdwt_com/g /etc/init.d/httpdwt_com && \
