@@ -26,9 +26,9 @@ EXPOSE 8080
 
 #COPY wtcom-tb2.properties /opt/application/wt_com/
 #RUN chmod 755 /opt/application/wt_com/wtcom-tb2.properties
-#RUN chgrp -R 0 /opt/apache
-#RUN chmod -R g+rw /opt/apache
-#RUN find /opt/apache -type d -exec chmod g+x {} +
+RUN chgrp -R 0 /opt/apache/2.4.25/bin
+RUN chmod -R g+rw /opt/apache/2.4.25/bin
+RUN find /opt/apache/2.4.25/bin -type d -exec chmod g+x {} +
 #RUN echo "ServerName localhost" >>/opt/apache/2.4.25/conf/httpd.conf
 
 # forward request and error logs to docker log collector
@@ -41,5 +41,5 @@ EXPOSE 8080
 #RUN   /opt/apache/2.4.25/bin/httpd -D FOREGROUND &
 #ENTRYPOINT ["/bin/bash"]
 #ENTRYPOINT ["/opt/apache/2.4.25/bin/httpd -D FOREGROUND"]
-#CMD ["/opt/apache/2.4.25/bin/httpd","-D FOREGROUND"]
-CMD ["/bin/sh"]
+CMD ["/opt/apache/2.4.25/bin/httpd","-D FOREGROUND"]
+#CMD ["/bin/sh"]
