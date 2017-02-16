@@ -38,6 +38,10 @@ RUN chgrp -R 0 /opt/apache/2.4.25/conf
 RUN chmod -R g+rw /opt/apache/2.4.25/conf
 RUN find /opt/apache/2.4.25/conf -type d -exec chmod g+x {} +
 
+RUN chgrp -R 0 /opt/apache/2.4.25/modules
+RUN chmod -R g+rw /opt/apache/2.4.25/modules
+RUN find /opt/apache/2.4.25/modules -type d -exec chmod g+x {} +
+
 #RUN echo "ServerName localhost" >>/opt/apache/2.4.25/conf/httpd.conf
 RUN echo "Listen 8080" >> /opt/apache/2.4.25/conf/httpd.conf
 
